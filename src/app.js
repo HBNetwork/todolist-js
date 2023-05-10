@@ -3,13 +3,19 @@ window.addEventListener('load', (event) => {
 
   const todoList = [];
 
-  function addTodoToList(title) {
-    todoList.push(title);
+  function handleCheckbox(e) {
+    console.log(e.target.checked);
   }
 
-  function imprimeTodo(title) {
-    const todoContainer = document.querySelector('#todoContainer');
-    todoContainer.innerHTML = title;
+  function addTodoToList(title) {
+    const todo = {
+      title: title,
+      done: false,
+    };
+
+    todoList.push(todo);
+
+    console.log(todoList);
   }
 
   function reloadTodoList() {
@@ -20,15 +26,29 @@ window.addEventListener('load', (event) => {
     // todoList.map(function (title) {
     //   console.log(title);
     // });
-    let innerHTML = '';
-    todoList.map((title) => {
-      innerHTML += `<div class="form-check mt-3">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-      <label class="form-check-label" for="flexCheckDefault"> ${title} </label>
-    </div>`;
-    });
 
-    imprimeTodo(innerHTML);
+    const todoContainer = document.querySelector('#todoContainer');
+    todoContainer.innerHTML = '';
+
+    const todos = todoList.map((todo) => {
+      const div = document.createElement('div');
+      div.setAttribute('class', 'form-check mt-3');
+
+      const checkbox = document.createElement('input');
+      checkbox.setAttribute('class', 'form-check-input');
+      checkbox.setAttribute('type', 'checkbox');
+      checkbox.setAttribute('onclick', () => handleCheckbox(this));
+      checkbox.setAttribute('value', todo.title);
+
+      const label = document.createElement('label');
+      label.setAttribute('class', 'form-check-label');
+      label.innerHTML = todo.title;
+
+      div.appendChild(checkbox);
+      div.appendChild(label);
+
+      todoContainer.appendChild(div);
+    });
   }
 
   btnAddTodo.addEventListener('click', (e) => {

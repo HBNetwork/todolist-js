@@ -1,3 +1,7 @@
+### Recomendação de extensões
+- [Liveserver](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+
+
 ### TODO
 
 - Input de formulário - check

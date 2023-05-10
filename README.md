@@ -9,8 +9,7 @@
 
 ## Comportamentos
 
-- Adicionar tarefa
+- Adicionar tarefa - check
  - Validação do texto
   - Se o texto for vazio, não adiciona
   - Exibir mensagem de erro (opcional)
-  

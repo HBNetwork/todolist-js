@@ -1,11 +1,16 @@
+function handleCheckbox(e) {
+  if (e.target.checked){
+    e.target.nextSibling.style = "text-decoration: line-through;"
+  } else {
+    e.target.nextSibling.style = ""
+  }
+  
+}
+
 window.addEventListener('load', (event) => {
   const btnAddTodo = document.querySelector('#btnAddTodo');
 
   const todoList = [];
-
-  function handleCheckbox(e) {
-    console.log(e.target.checked);
-  }
 
   function addTodoToList(title) {
     const todo = {
@@ -37,7 +42,7 @@ window.addEventListener('load', (event) => {
       const checkbox = document.createElement('input');
       checkbox.setAttribute('class', 'form-check-input');
       checkbox.setAttribute('type', 'checkbox');
-      checkbox.setAttribute('onclick', () => handleCheckbox(this));
+      checkbox.setAttribute('onchange', 'handleCheckbox(event)');
       checkbox.setAttribute('value', todo.title);
 
       const label = document.createElement('label');

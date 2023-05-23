@@ -9,7 +9,7 @@
 - Lista de Tarefas - check
  - Nome da tarefa
  - Checkbox para marcar a tarefa como `feita`
- - Quando a tarefa é marcada como feita, formatamos o nome da tarefa
+ - Quando a tarefa é marcada como feita, formatamos o nome da tarefa  - DOING
 
 ## Comportamentos
 
